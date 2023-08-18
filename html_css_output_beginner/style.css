@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    width: 1920px;
+    margin: 0 auto;
+}
+
+header {
+    width: 45%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.header-logo {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: navy;
+    color: white;
+    padding: 1px 10px;
+}
+
+.header-items {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+}
+.header-item a {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+}
+
+.top-view {
+    height: 600px;
+    background-image: url('public/img/1920x1280.png');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 100px;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 4px;
+}
+
+.sub-title {
+    font-size: large;
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+}
+
+.intro {
+    margin-bottom: 80px;
+}
+
+.intro-content {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.intro-text {
+    padding-left: 30px;
+}
+.intro-text p {
+    letter-spacing: 1.5px;
+}
+
+.intro-img {
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.intro-img img {
+    border-radius: 100px;
+    height: 70%;
+}
+
+.prof {
+    margin-bottom: 80px;
+}
+
+.profiles {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto; 
+}
+
+.profile {
+    flex: 1;
+}
+
+footer {
+    text-align: center;
+    font-size: 10px;
+    color: gray;
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    header {
+        width: 90%;
+        flex-wrap: nowrap;
+    }
+
+    .header-logo {
+        white-space: nowrap; 
+    }
+    .header-items {
+        white-space: nowrap; 
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 4px;
+    }
+
+    .sub-title {
+        font-size: 25px;
+        margin-bottom: 50px;
+    }
+
+    .intro-content {
+        display: grid;
+        width: 100%;
+    }
+
+    .intro-text {
+        padding-left: 0px;
+    }
+    .intro-text h3 {
+        text-align: center;
+    }
+
+    .intro-img {
+        margin: 0 auto;
+        padding-left: 0;
+    }
+    .intro-img img {
+        border-radius: 100px;
+        height: 100%;
+    }
+
+    .intro {
+        margin-bottom: 120px;
+    }
+
+    .profiles {
+        display: grid;
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto; 
+    }
+    
+    .profile {
+        flex: 1;
+    }
+
+
+}
