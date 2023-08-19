@@ -13,7 +13,7 @@ body {
 
 header {
     width: 45%;
-    height: 50px;
+    min-height: 70px;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -26,6 +26,7 @@ header {
     background-color: navy;
     color: white;
     padding: 1px 10px;
+    white-space: nowrap;
 }
 
 .header-items {
@@ -37,6 +38,7 @@ header {
     text-decoration: none;
     color: black;
     font-weight: 300;
+    white-space: nowrap;
 }
 
 .top-view {
@@ -50,7 +52,8 @@ header {
 }
 
 .container {
-    width: 960px;
+    max-width: 960px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 4px;
 }
@@ -85,7 +88,8 @@ header {
 }
 .intro-img img {
     border-radius: 100px;
-    height: 70%;
+    width: 70%;
+    height: auto;
 }
 
 .prof {
@@ -129,6 +133,7 @@ footer {
     }
     .header-items {
         white-space: nowrap; 
+        gap: 16px;
     }
 
     .container {
@@ -160,7 +165,7 @@ footer {
     }
     .intro-img img {
         border-radius: 100px;
-        height: 100%;
+        width: 100%;
     }
 
     .intro {
@@ -179,4 +184,31 @@ footer {
     }
 
 
+}
+
+@media (max-width: 420px) {
+    header {
+        max-width: 960px;
+        width: 90%;
+    }
+    .header-items {
+        font-size: xx-small
+    }
+    .header-logo {
+        font-size: small;
+    }
+}
+
+@media (max-width: 300px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-items {
+        font-size: xx-small;
+        flex-wrap: wrap;
+    }
+    .header-logo {
+        font-size: small;
+    }
 }
