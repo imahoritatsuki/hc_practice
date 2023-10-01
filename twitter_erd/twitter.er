@@ -29,7 +29,7 @@
 
 [retweet]
   *id {label: "CHAR, not null"}
-  original_post_id {label: "CHAR, not null, FK(posts)"}
+  post_id {label: "CHAR, not null, FK(posts)"}
   user_id {label: "CHAR, not null, FK(users)"}
   created_at {label: "DATE, not null"}
   updated_at {label: "DATE, not null"}
@@ -42,9 +42,9 @@
   updated_at {label: "DATE, not null"}
 
 [follows]
-  *id {label: "CHAR, not null"}
+  *follower_id {label: "CHAR, not null"}
   user_id {label: "CHAR, not null, FK(users)"}
-  followed_user_id {label: "CHAR, not null, FK(users)"}
+  followed_id {label: "CHAR, not null, FK(users)"}
   created_at {label: "DATE, not null"}
   updated_at {label: "DATE, not null"}
 
