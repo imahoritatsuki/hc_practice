@@ -1,0 +1,107 @@
+[users]
+  *id {label: "CHAR, not null"}
+  email {label: "VARCHAR, not null, uniq"}
+  user_name {label: "VARCHAR, not null, uniq"}
+  phone {label: "CHAR, not null, uniq"}
+  view_name {label: "VARCHAR, null"}
+  introduce {label: "VARCHAR, null"}
+  place {label: "VARCHAR, null"}
+  website {label: "VARCHAR, null"}
+  date_of_birth {label: "DATE, null"}
+  image_profile {label: "VARCHAR, null"}
+  image_avatar {label: "VARCHAR, null"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[posts]
+  *id {label: "CHAR, not null"}
+  user_id {label: "CHAR, not null, FK(users)"}
+  content {label: "VARCHAR(140), not null"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[likes]
+  *id {label: "CHAR, not null"}
+  post_id {label: "CHAR, not null, FK(posts)"}
+  user_id {label: "CHAR, not null, FK(users)"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[retweet]
+  *id {label: "CHAR, not null"}
+  post_id {label: "CHAR, not null, FK(posts)"}
+  user_id {label: "CHAR, not null, FK(users)"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[bookmark]
+  *id {label: "CHAR, not null"}
+  post_id {label: "CHAR, not null, FK(posts)"}
+  user_id {label: "CHAR, not null, FK(users)"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[follows]
+  *follower_id {label: "CHAR, not null"}
+  user_id {label: "CHAR, not null, FK(users)"}
+  followed_id {label: "CHAR, not null, FK(users)"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[direct_messages]
+  *id {label: "CHAR, not null"}
+  send_user_id {label: "CHAR, not null, FK(users)"}
+  receive_user_id {label: "CHAR, not null, FK(users)"}
+  content {label: "VARCHAR, not null"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[post_notices]
+  *id {label: "CHAR, not null"}
+  notice_type_id {label: "CHAR, not null, FK(post_notice_types)"}
+  post_id {label: "CHAR, not null, FK(posts)"}
+  send_user_id {label: "CHAR, not null, FK(users)"}
+  receive_user_id {label: "CHAR, not null, FK(users)"}
+  status {label: "VARCHAR, not null"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[post_notice_types]
+  *id {label: "CHAR, not null"}
+  type {label: "VARCHAR, not null, uniq"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[follow_notices]
+  *id {label: "CHAR, not null"}
+  notice_type_id {label: "CHAR, not null, FK(follow_notice_types)"}
+  send_user_id {label: "CHAR, not null, FK(users)"}
+  receive_user_id {label: "CHAR, not null, FK(users)"}
+  status {label: "VARCHAR, not null"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+[follow_notice_types]
+  *id {label: "CHAR, not null"}
+  type {label: "VARCHAR, not null, uniq"}
+  created_at {label: "DATE, not null"}
+  updated_at {label: "DATE, not null"}
+
+# Cardinality    Syntax
+# 0 or 1         ?
+# exactly 1      1
+# 0 or more      *
+# 1 or more      +
+users *--1 posts
+users *--1 likes
+users *--1 retweet
+users *--1 bookmark
+users *--1 post_notices
+users *--1 follow_notices
+users *--1 follows
+users *--1 direct_messages
+posts *--1 likes
+posts *--1 retweet
+posts *--1 bookmark
+post_notice_types *--1 post_notices
+follow_notice_types *--1 follow_notices
